@@ -1,2 +1,2 @@
-# My Project
+Sticky Notes Board
 "My Task Board" is a simple web application that allows users to create, manage, and display tasks on a digital corkboard. Users can input a task description, select a date and time, and add it as a sticky note on the board. Each task is visually represented as a sticky note with a pinned effect, creating an engaging and interactive experience.
