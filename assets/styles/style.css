@@ -1,0 +1,100 @@
+h1 {
+    text-align: center;
+    font-family: "Navilla", sans-serif;
+}
+
+@font-face {
+    font-family: "Navilla";
+    src: url("fonts/Navilla.ttf")
+}
+
+body {
+    background-image: url("images/tile.jpg");
+    background-color: brown;
+}
+
+#myForm {
+    background-image: url("images/formbg.jpg");
+    width: 60%;
+    text-align: center;
+    margin: auto;
+    padding: 1%;
+}
+
+label {
+    font-weight: 900;
+}
+
+input,
+button,
+label {
+    margin: 1%;
+    padding: 1%;
+}
+
+#tasks {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+#note {
+    background-image: url("images/notebg.png");
+    height: 250px;
+    width: 200px;
+    padding: 10px;
+    margin: 20px;
+    background-size: cover;
+    position: relative;
+}
+
+#myContent {
+    overflow-y: auto;
+    max-height: 55%;
+    width: 150px;
+    position: absolute;
+    top: 20%;
+}
+
+#myButton {
+    position: absolute;
+    right: 12%;
+    top: 8%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+}
+
+#note:hover>#myButton {
+    opacity: 1;
+}
+
+#myDate {
+    font-size: small;
+    font-weight: 600;
+    position: absolute;
+    bottom: 4%;
+}
+
+.fade-in {
+    animation: fadeIn 2s;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.bi {
+    font-size: 25px;
+}
