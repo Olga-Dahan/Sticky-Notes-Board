@@ -1,5 +1,14 @@
 "use strict";
 
+let init = () => {
+    buildTasks();
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    const today = new Date().toISOString().split("T")[0];        // get YYYY-MM-DD
+    document.getElementById("date").setAttribute("min", today);
+});
+
 function submitForm(event) {
     event.preventDefault();
     const theContent = document.getElementById("content").value;
@@ -44,33 +53,19 @@ function buildTasks() {
     document.getElementById("tasks").innerHTML = info;
 }
 
+function addTaskToDOM(index, task) {
+    const div_tasks = document.getElementById("tasks");
+    let last_div = document.createElement("div");
+    last_div.innerHTML = `
+    <div id="note" class="fade-in">
+    <button id="myButton" onclick="deleteTask(${index})"><i class="bi bi-x-square-fill"></i></button>
+    <br>
+        <div id="myContent">${task.content}</div>
+        <br>
+        <div id="myDate">${task.date}<br>${task.time}</div>
+    </div>
+    `;
 
-
-function validateDate(theContent, theDate, theTime) {
-
-    if (theContent === "") {
-        alert("Missing task");
-        return 0;
-    }
-
-    if (theTime === "") {
-        alert("Missing time");
-        return 0;
-    }
-
-    if (theDate === "") {
-        alert("Missing date");
-        return 0;
-    }
-
-    let selectedDate = new Date(theDate);
-    const currentDate = new Date();
-
-
-    if (selectedDate <= currentDate) {
-        alert("Please select a future date");
-        return 0;
-    }
-
-    return 1;
+    div_tasks.appendChild(last_div);
 }
+
