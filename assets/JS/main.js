@@ -1,45 +1,45 @@
 "use strict";
 
 let init = () => {
-    buildTasks();
+  buildTasks();
 }
 
 init();
 
 document.addEventListener("DOMContentLoaded", function () {
-    const today = new Date().toISOString().split("T")[0];        // get YYYY-MM-DD
-    document.getElementById("date").setAttribute("min", today);
+  const today = new Date().toISOString().split("T")[0];        // get YYYY-MM-DD
+  document.getElementById("date").setAttribute("min", today);
 });
 
 function submitForm(event) {
-    event.preventDefault();
-    const theContent = document.getElementById("content").value;
-    const theDate = document.getElementById("date").value;
-    const theTime = document.getElementById("time").value;
+  event.preventDefault();
+  const theContent = document.getElementById("content").value;
+  const theDate = document.getElementById("date").value;
+  const theTime = document.getElementById("time").value;
 
-    if (validateDate(theContent, theDate, theTime)) {
-        addTask(theContent, theDate, theTime);
-    }
+  if (validateDate(theContent, theDate, theTime)) {
+    addTask(theContent, theDate, theTime);
+  }
 
-    document.getElementById("myForm").reset();
+  document.getElementById("myForm").reset();
 }
 
 
 function clearTask(event) {
-    event.preventDefault();
-    document.getElementById("myForm").reset();
+  event.preventDefault();
+  document.getElementById("myForm").reset();
 }
 
 
 function buildTasks() {
 
-    const tasks = getTasks();
+  const tasks = getTasks();
 
-    let info = "";
+  let info = "";
 
 
-    for (let i = 0; i < tasks.length; i++) {
-        info += `
+  for (let i = 0; i < tasks.length; i++) {
+    info += `
         <div id="note" >
         
             <button id = "myButton" onclick = "deleteTask(${i})"><i class="bi bi-x-square-fill"></i></button>
@@ -50,15 +50,15 @@ function buildTasks() {
             
         </div>
     `;
-    }
+  }
 
-    document.getElementById("tasks").innerHTML = info;
+  document.getElementById("tasks").innerHTML = info;
 }
 
 function addTaskToDOM(index, task) {
-    const div_tasks = document.getElementById("tasks");
-    let last_div = document.createElement("div");
-    last_div.innerHTML = `
+  const div_tasks = document.getElementById("tasks");
+  let last_div = document.createElement("div");
+  last_div.innerHTML = `
     <div id="note" class="fade-in">
     <button id="myButton" onclick="deleteTask(${index})"><i class="bi bi-x-square-fill"></i></button>
     <br>
@@ -68,6 +68,6 @@ function addTaskToDOM(index, task) {
     </div>
     `;
 
-    div_tasks.appendChild(last_div);
+  div_tasks.appendChild(last_div);
 }
 
