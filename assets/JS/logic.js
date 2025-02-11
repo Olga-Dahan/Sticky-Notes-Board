@@ -26,7 +26,8 @@ function saveTasks(tasks) {
 
 function getTasks() {
     const tasks = localStorage.getItem("tasks");
-    return JSON.parse(tasks) || [];
+    return tasks ? JSON.parse(tasks) : [];
+
 }
 
 

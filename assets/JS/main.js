@@ -4,6 +4,8 @@ let init = () => {
     buildTasks();
 }
 
+init();
+
 document.addEventListener("DOMContentLoaded", function () {
     const today = new Date().toISOString().split("T")[0];        // get YYYY-MM-DD
     document.getElementById("date").setAttribute("min", today);
